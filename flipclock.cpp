@@ -12,8 +12,6 @@
 #include "card.h"
 #include "util/platform.h"
 
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
 #define FPS 60
 #define MAX_PROGRESS 300
 #define HALF_PROGRESS (MAX_PROGRESS / 2)

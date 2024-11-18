@@ -99,8 +99,7 @@ static void update_settings(struct flipclock *app, obs_data_t *s)
 	
 	if (app->type == TYPE_CLOCK) {
 		flipclock_set_ampm(app, ampm);
-		//flipclock_set_show_hour(app, true);
-		flipclock_set_show_hour(app, false);
+		flipclock_set_show_hour(app, true);
 		flipclock_set_hour(app, true);
 		flipclock_set_minute(app, true);
 		flipclock_set_show_second(app, show_second);
@@ -245,7 +244,7 @@ static void *fc_create(obs_data_t *settings, obs_source_t *source)
 	struct obs_video_info ovi;
 	if (obs_get_video_info(&ovi)) {
 		default_width = ovi.base_width;
-		default_height = ovi.base_height;
+		default_height = default_width / 1.777777777777778;
 	}
 
 	struct flipclock *app = flipclock_create(default_width, default_height);

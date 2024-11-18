@@ -9,9 +9,6 @@
 #include "clock.h"
 #include "card.h"
 
-#define WINDOW_WIDTH 1920
-#define WINDOW_HEIGHT 1080
-
 static void _flipclock_clock_update_layout(struct flipclock_clock *clock)
 {
 	RETURN_IF_FAIL(clock != NULL);
@@ -150,10 +147,9 @@ struct flipclock_clock *flipclock_clock_create(struct flipclock *app, int i)
 	char window_title[MAX_BUFFER_LENGTH];
 	snprintf(window_title, MAX_BUFFER_LENGTH, PROGRAM_TITLE " %d", i);
 	clock->window = SDL_CreateWindow(
-		window_title,
-		display_bounds.x + (display_bounds.w - WINDOW_WIDTH) / 2,
-		display_bounds.y + (display_bounds.h - WINDOW_HEIGHT) / 2,
-		WINDOW_WIDTH, WINDOW_HEIGHT, flags);
+		window_title, display_bounds.x + (display_bounds.w - app->fixed_clock_width) / 2,
+		display_bounds.y + (display_bounds.h - app->fixed_clock_height) / 2,
+		app->fixed_clock_width, app->fixed_clock_height, flags);
 	if (clock->window == NULL) {
 		flipclock_clock_destroy(clock);
 		clock = NULL;
