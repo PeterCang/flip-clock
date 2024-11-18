@@ -158,8 +158,9 @@ xcopy /E /Y "D:\work-for-webrtc\obs-studio\plugins\flipclock\data\" "D:\work-for
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;FLIPCLOCK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>D:\work-for-webrtc\obs-studio\libobs;D:\work-for-webrtc\obs-studio\build64\config;D:\work1\SDL-release-2.28.5\include;D:\work1\SDL_ttf;D:\work-for-webrtc\obs-studio\deps\w32-pthreads;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -167,7 +168,16 @@ xcopy /E /Y "D:\work-for-webrtc\obs-studio\plugins\flipclock\data\" "D:\work-for
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>D:\work1\SDL_ttf\build64\Release;D:\work1\SDL-release-2.28.5\build64\Release;D:\work1\SDL_ttf\build64\external\freetype\Release;D:\work-for-webrtc\obs-studio\build64\libobs\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2-static.lib;SDL2main.lib;SDL2_ttf.lib;freetype.lib;Imm32.lib;Version.lib;Setupapi.lib;Winmm.lib;obs.lib;..\..\deps\ipc-util\Release\ipc-util.lib;D:\work-for-webrtc\obs-build-dependencies\windows-deps-2023-04-12-x64\lib\jansson.lib;..\..\deps\w32-pthreads\Release\w32-pthreads.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "D:\work-for-webrtc\obs-studio\build64\plugins\flipclock\Release\flipclock.dll" "D:\work-for-webrtc\obs-studio\build64\rundir\Release\obs-plugins\64bit\flipclock.dll"
+copy /Y "D:\work-for-webrtc\obs-studio\build64\plugins\flipclock\Release\flipclock.pdb" "D:\work-for-webrtc\obs-studio\build64\rundir\Release\obs-plugins\64bit\flipclock.pdb"
+copy /Y "D:\work-for-webrtc\obs-studio\plugins\flipclock\flipclock.ttf" "D:\work-for-webrtc\obs-studio\build64\rundir\Release\bin\64bit\flipclock.ttf"
+xcopy /E /Y "D:\work-for-webrtc\obs-studio\plugins\flipclock\data\" "D:\work-for-webrtc\obs-studio\build64\rundir\Release\data\obs-plugins\flipclock\"
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -414,10 +414,6 @@ static void fc_tick(void *data, float seconds)
 
 	int _w = app->clocks[0]->w;
 	int _h = app->clocks[0]->h;
-	//int frameSize = _w * _h * 3 / 2;
-	
-	//uint8_t *pixels = static_cast<uint8_t *>(malloc(frameSize));
-	//SDL_RenderReadPixels(app->clocks[0]->renderer, NULL, SDL_PIXELFORMAT_NV12, pixels, _w );
 	
 	 SDL_Surface *SaveSurface = SDL_CreateRGBSurfaceWithFormat(
 		0, _w, _h, 32, SDL_PIXELFORMAT_RGBA32);
@@ -426,7 +422,6 @@ static void fc_tick(void *data, float seconds)
 			      SaveSurface->format->format, SaveSurface->pixels,
 			      SaveSurface->pitch);
 
-	 //SDL_SaveBMP(SaveSurface, "d:\\abcd.bmp");
 
 	__frame.timestamp = 0;
 	__frame.width = _w;
