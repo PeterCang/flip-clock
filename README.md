@@ -1,4 +1,4 @@
-# OBS Flip Clock
+# OBS Flip Clock Plugin
 
 A beautifully designed clock plugin for OBS Studio with stunning flipping clock effects. Display the current time, countdowns, or a stopwatch in your streams with full customization options.
 
