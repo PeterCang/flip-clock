@@ -14,7 +14,8 @@ Var INSTALL_BASE_DIR
 Var OBS_INSTALL_DIR
 
 ; Use compression
-SetCompressor Zlib
+SetCompressor /FINAL /SOLID lzma
+SetDatablockOptimize on
 
 ; Modern interface settings
 !include "MUI.nsh"
@@ -23,8 +24,6 @@ SetCompressor Zlib
 
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "LICENSE"
-!insertmacro MUI_PAGE_DIRECTORY
-!insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
 
@@ -55,7 +54,9 @@ Section "Flip Clock OBS Plugin" Section1
 	SetOverwrite on
 	AllowSkipFiles off
 
-	; Set Section Files and Shortcuts
+	SetOutPath "$INSTDIR\bin\64bit\"
+	File ".\flipclock.ttf"
+	
 	SetOutPath "$INSTDIR\obs-plugins\64bit\"
 	File ".\x64\Release\flipclock.dll"
 	File ".\x64\Release\flipclock.pdb"
@@ -66,7 +67,7 @@ Section "Flip Clock OBS Plugin" Section1
 	File ".\data\locale\zh-TW.ini"
 	
 	CreateDirectory "$SMPROGRAMS\Flip Clock OBS Plugin"
-	CreateShortCut "$SMPROGRAMS\Flip Clock OBS Plugin\Uninstall Flip Clock OBS Plugin.lnk" "$INSTDIR\obs-plugins\64bit\uninstall-flipclock-plugin.exe"
+	CreateShortCut "$SMPROGRAMS\Flip Clock OBS Plugin\Uninstall Flip Clock OBS Plugin.lnk" "$INSTDIR\obs-plugins\uninstall-flipclock-plugin.exe"
 
 SectionEnd
 
@@ -74,11 +75,11 @@ Section -FinishSection
 
 	WriteRegStr HKLM "Software\${APPNAME}" "InstallDir" "$INSTDIR"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayName" "${APPNAME}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "UninstallString" "$INSTDIR\obs-plugins\64bit\uninstall-flipclock-plugin.exe"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "UninstallString" "$INSTDIR\uninstall-flipclock-plugin.exe"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "Publisher" "Biry"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "HelpLink" "https://github.com/PeterCang/obs-flip-clock"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayVersion" "${APPVERSION}"
-	WriteUninstaller "$INSTDIR\obs-plugins\64bit\uninstall-flipclock-plugin.exe"
+	WriteUninstaller "$INSTDIR\uninstall-flipclock-plugin.exe"
 
 SectionEnd
 
@@ -98,11 +99,12 @@ Section Uninstall
 	DeleteRegKey HKLM "SOFTWARE\${APPNAME}"
 
 	; Delete self
-	Delete "$INSTDIR\obs-plugins\64bit\uninstall-flipclock-plugin.exe"
+	Delete "$INSTDIR\uninstall-flipclock-plugin.exe"
 
 	; Delete Shortcuts
 	Delete "$SMPROGRAMS\Flip Clock OBS Plugin\Uninstall Flip Clock OBS Plugin.lnk"
 
+	Delete "$INSTDIR\bin\64bit\flipclock.ttf"
 	Delete "$INSTDIR\obs-plugins\64bit\flipclock.dll"
 	Delete "$INSTDIR\obs-plugins\64bit\flipclock.pdb"
 	Delete "$INSTDIR\data\obs-plugins\flipclock\locale\en-US.ini"
