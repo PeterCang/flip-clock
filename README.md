@@ -38,10 +38,7 @@ This plugin is based on the open-source project [flipclock](https://github.com/A
 ## Installation
 
 1. Download the plugin from the [Releases](https://github.com/your-repo/obs-flip-clock/releases) page.
-2. Copy the plugin files into the `obs-studio/plugins` directory:
-   - **Windows**: `C:\Program Files\obs-studio\plugins`
-   - **macOS**: `/Library/Application Support/obs-studio/plugins`
-   - **Linux**: `/usr/share/obs-studio/plugins`
+2. Run setup file
 3. Restart OBS Studio.
 
 ---
@@ -50,23 +47,19 @@ This plugin is based on the open-source project [flipclock](https://github.com/A
 
 1. **Add the OBS Flip Clock**:
    - Open OBS Studio and click **+** in the **Sources** panel.
-   - Select **OBS Flip Clock** from the list of sources.
+   - Select **Flip Clock** from the list of sources.
 
 2. **Choose a Mode**:
-   - **Current Time**: Show the current time with options to enable/disable AM/PM and seconds.
-   - **Countdown Timer**: Specify the countdown duration and let the plugin handle the rest.
+   - **Clock**: Show the current time with options to enable/disable AM/PM and seconds.
+   - **Timer**: Specify the countdown duration and let the plugin handle the rest.
    - **Stopwatch**: Track elapsed time with precision.
-
-3. **Customize Appearance**:
-   - Adjust the font, size, color, and position to match your stream's style.
-   - Enable the flipping animation for a modern and dynamic look.
 
 ---
 
 ## Requirements
 
 - OBS Studio version **30.0.0** or later.
-- Compatible with **Windows**, **macOS**, and **Linux**.
+- Compatible with **Windows**.
 
 ---
 
