@@ -65,7 +65,7 @@ This plugin is based on the open-source project [flipclock](https://github.com/A
 
 ## Requirements
 
-- OBS Studio version **27.0.0** or later.
+- OBS Studio version **30.0.0** or later.
 - Compatible with **Windows**, **macOS**, and **Linux**.
 
 ---
