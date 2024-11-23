@@ -1,11 +1,11 @@
-# OBS Flip Clock Plugin
+# Flip Clock Plugin
 
 A beautifully designed clock plugin for OBS Studio with stunning flipping clock effects. Display the current time, countdowns, or a stopwatch in your streams with full customization options.
 
-![24 hours](https://github.com/PeterCang/obs-flip-clock/blob/main/images/1.png "24 hours")
-![ampm](https://github.com/PeterCang/obs-flip-clock/blob/main/images/2.png "ampm")
-![stopwatch](https://github.com/PeterCang/obs-flip-clock/blob/main/images/3.png "stopwatch")
-![timer](https://github.com/PeterCang/obs-flip-clock/blob/main/images/4.png "timer")
+![24 hours](https://github.com/PeterCang/flip-clock/blob/main/images/1.png "24 hours")
+![ampm](https://github.com/PeterCang/flip-clock/blob/main/images/2.png "ampm")
+![stopwatch](https://github.com/PeterCang/flip-clock/blob/main/images/3.png "stopwatch")
+![timer](https://github.com/PeterCang/flip-clock/blob/main/images/4.png "timer")
 
 ---
 
@@ -37,7 +37,7 @@ This plugin is based on the open-source project [flipclock](https://github.com/A
 
 ## Installation
 
-1. Download the plugin from the [Releases](https://github.com/your-repo/obs-flip-clock/releases) page.
+1. Download the plugin from the [Releases](https://github.com/PeterCang/flip-clock/releases) page.
 2. Run setup file
 3. Restart OBS Studio.
 
@@ -45,7 +45,7 @@ This plugin is based on the open-source project [flipclock](https://github.com/A
 
 ## Usage
 
-1. **Add the OBS Flip Clock**:
+1. **Add the Flip Clock**:
    - Open OBS Studio and click **+** in the **Sources** panel.
    - Select **Flip Clock** from the list of sources.
 
